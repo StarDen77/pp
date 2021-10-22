@@ -17,13 +17,14 @@ public class PostMod {
     private String title_mod;
     private String text_mod;
     private String text_mod_tag;
+    private String key_words;
     private Integer isEx;
 
 
     public PostMod() {
     }
 
-    public PostMod(Long id, Long canonical, String title_origin, String text_origin, String title_mod, String text_mod, String text_mod_tag, Integer isEx) {
+    public PostMod(Long id, Long canonical, String title_origin, String text_origin, String title_mod, String text_mod, String text_mod_tag, String key_words, Integer isEx) {
         this.id = id;
         this.canonical = canonical;
         this.title_origin = title_origin;
@@ -31,7 +32,16 @@ public class PostMod {
         this.title_mod = title_mod;
         this.text_mod = text_mod;
         this.text_mod_tag = text_mod_tag;
+        this.key_words = key_words;
         this.isEx = isEx;
+    }
+
+    public String getKey_words() {
+        return key_words;
+    }
+
+    public void setKey_words(String key_words) {
+        this.key_words = key_words;
     }
 
     public Long getId() {

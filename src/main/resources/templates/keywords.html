@@ -7,10 +7,10 @@
 </head>
 <body>
 <header th:insert="parts/header :: header"></header>
-<div class="container-fluid">
+<div class="container-fluid align-items-center bg-light">
     <br>
     <form method="post">
-        <div class="form-group row">
+        <div class="form-group row" >
             <div class="col">
                 <input type="text"  name="new_key" placeholder="Новое слово/фраза" class="form-control"/>
             </div>
@@ -20,7 +20,7 @@
             <div class="col">
                 <input type="text"  name="new_pict" placeholder="Картинка" class="form-control"/>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <button type="submit" class="btn btn-success">Добавить</button>
             </div>
         </div>
@@ -34,8 +34,8 @@
         <th>Ключевое слово</th>
         <th>Тег</th>
         <th>Картинка</th>
-        <th>Edit</th>
-        <th>Del</th>
+        <th width="20">Edit</th>
+        <th width="20">Del</th>
     </tr>
     <tr th:each="el : ${keywords}">
         <td th:text="${el.id} + ' '"></td>
@@ -43,8 +43,8 @@
         <td th:text="${el.tag}"></td>
         <td th:text="${el.pict}"></td>
         <!--        <td><button type="button" class="btn btn-warning">Edit</button></td>-->
-        <td><a th:href="'/edit/'+${el.id}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Edit</a></td>
-        <td><a th:href="'/edit/'+${el.id}+'/delete'" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Del</a></td>
+        <td><a th:href="'/keyedit/'+${el.id}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Edit</a></td>
+        <td><a th:href="'/keyedit/'+${el.id}+'/delete'" class="btn btn-outline-danger btn-sm" role="button" aria-pressed="true">Del</a></td>
     </tr>
 </table>
 

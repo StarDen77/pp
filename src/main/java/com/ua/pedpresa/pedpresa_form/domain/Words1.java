@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "words_1")
-public class Words1 {
+public class Words1  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,3 +43,4 @@ public class Words1 {
         this.sinonim = sinonim;
     }
 }
+

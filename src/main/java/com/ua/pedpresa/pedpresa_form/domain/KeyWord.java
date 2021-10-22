@@ -25,6 +25,13 @@ public class KeyWord {
         this.pict = pict;
     }
 
+    public KeyWord(long id, String key_words, String tag, String pict) {
+        this.id = id;
+        this.key_words = key_words;
+        this.tag = tag;
+        this.pict = pict;
+    }
+
     public String getPict() {
         return pict;
     }

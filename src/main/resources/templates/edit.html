@@ -8,45 +8,52 @@
 <body>
 <header th:insert="parts/header"></header>
 
-<div class="container-fluid" th:each="el : ${post}">
+<div class="container-fluid">
+    <div th:each="el : ${post}">
         <div class="row">
             <div class="col" th:text="${el.title_origin}"></div>
             <div class="col" th:text="${el.title_mod}"></div>
 
-            <div class="col-1">
-
+            <div class="col-2" align="center">
+                <td><a th:href="'/edit/'+${el.id-1}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true"><<</a></td>
+                <td><a th:href="'/edit/'+${el.id+1}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true">>></a></td>
             </div>
         </div>
 
         <div class="row mt-5">
             <div class="col" th:utext="${el.text_origin}"></div>
             <div class="col" th:utext="${el.text_mod_tag}"></div>
+<!-- Боковая панель -->
+            <div class="col-2" align="center">
 
-            <div class="col-1" align="right">
-                <td><a th:href="'/edit/'+${el.id-1}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true"><<</a></td><br><br>
-                <td><a th:href="'/edit/'+${el.id+1}" class="btn btn-outline-info btn-sm" role="button" aria-pressed="true">>></a></td><br><br>
-                <td><a th:href="'/edit/'+${el.id}+'/delete'" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Del</a></td><br><br>
-                <td><a th:href="'/edit/'+${el.id}+'/delete'" class="btn btn-success btn-sm" role="button" aria-pressed="true">Go</a></td>
+                <td><a th:href="'/edit/'+${el.id}+'/delete'" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Удалить</a></td><br><br>
+                <td><a th:href="'/edit/'+${el.id}+'/delete'" class="btn btn-success btn-sm" role="button" aria-pressed="true">Отправить</a></td><br><br>
+                <p> Частота слов </p>
 
+                    <tr th:each="wr : ${freq}">
+                        <td th:text="${wr.key}+' - '+${wr.value.toString()}"></td><br>
+                    </tr>
             </div>
         </div>
+    </div>
     <br>
-    <br>
-    <form method="post">
-        <div class="form-group row">
-            <div class="col">
-                <input type="text"  name="text_old" placeholder="Старый текст" class="form-control"/>
+    <div class="container-fluid align-items-center bg-light">
+        <br>
+        <form method="post">
+            <div class="form-group row">
+                <div class="col">
+                    <input type="text"  name="text_old" placeholder="Старый текст" class="form-control"/>
+                </div>
+                <div class="col">
+                    <input type="text"  name="text_new" placeholder="Новый текст" class="form-control"/>
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-success">Заменить</button>
+                </div>
             </div>
-            <div class="col">
-                <input type="text"  name="text_new" placeholder="Новый текст" class="form-control"/>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-success">Заменить</button>
-            </div>
-        </div>
-    </form>
-    <br>
-    <br>
+         </form>
+        <br>
+    </div>
 </div>
 </body>
 </html>
